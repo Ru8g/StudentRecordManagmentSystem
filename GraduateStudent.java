@@ -6,6 +6,7 @@ public class GraduateStudent extends Student {
     public GraduateStudent(int id, String name, String department, double gpa, int year, String researchTopic, String supervisorName) {
         super(id, name, department, gpa, year);
         this.researchTopic = researchTopic;
+        this.supervisorName = supervisorName;
     }
 
     public String getResearchTopic() {
