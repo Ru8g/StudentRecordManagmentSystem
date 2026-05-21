@@ -13,16 +13,18 @@ Auto-saving: Background multithreading process to save data automatically.
 Technologies Used:
 
 Java
-Object-Oriented Programming (OOP)
-File I/O
-Multithreading
-Exception Handling
+Encapsulation: Private attributes with public getters and setters in Student class.
+Composition: StudentManager containing an ArrayList of Students.
+Inheritance: GraduateStudent class extending the core Student class.
+Polymorphism: Overriding the toString method in GraduateStudent.
+File I/O and Exception Handling: Safe data streaming using try-catch blocks.
+Multithreading: Dynamic background task execution.
 
 How to Run:
 
-Open the terminal or command prompt in the project folder.
-Compile the code using the command: javac *.java
-Run the program using the command: java Main
+1. Open the terminal or command prompt in the project folder.
+2. Compile the code using the command: javac *.java
+3. Run the program using the command: java Main
 
 Team Members:
 
