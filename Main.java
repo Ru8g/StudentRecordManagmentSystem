@@ -28,8 +28,10 @@ System.out.println("\n--- SRMS Menu ---");
 System.out.println("1. Add Student");
 System.out.println("2. Add Graduate Student");
 System.out.println("3. Print All Students Reports");
-System.out.println("4. Exit & Save");
-System.out.print("Choice: ");
+System.out.println("4. Update Student");
+System.out.println("5. Delete Student");
+System.out.println("6. Exit & Save");
+System.out.print("Enter your choice: ");
 
 int choice = input.nextInt();
 input.nextLine();
@@ -72,17 +74,39 @@ manager.addStudent(new GraduateStudent(id, name, dept, gpa, year, topic, supervi
 System.out.println("Graduate Student Added.");
 
 } else if (choice == 3) {
-System.out.println("\n--- Students Report ---");
-for (Student s : manager.getStudents()) {
-System.out.println(s.toString());
-}
+    manager.printAllStudentsReports();
 
 } else if (choice == 4) {
-manager.saveToFile();
-exit = true;
-System.out.println("System Exited.");
-} else {
-System.out.println("Invalid Choice.");
+    System.out.print("Enter Student ID to update: ");
+    int id = input.nextInt();
+    input.nextLine();
+
+    System.out.print("Enter new Name: ");
+    String newName = input.nextLine();
+
+    System.out.print("Enter new Department: ");
+    String newDept = input.nextLine();
+
+    System.out.print("Enter new GPA: ");
+    double newGpa = input.nextDouble();
+
+    System.out.print("Enter new Year: ");
+    int newYear = input.nextInt();
+    input.nextLine();
+
+    manager.updateStudent(id, newName, newDept, newGpa, newYear);
+} 
+else if (choice == 5) {
+    System.out.print("Enter Student ID to delete: ");
+    int id = input.nextInt();
+    input.nextLine();
+    
+    manager.deleteStudent(id);
+} 
+else if (choice == 6) {
+    System.out.println("Saving data and exiting. Goodbye!");
+    manager.saveToFile();
+    break;
 }
 }
 

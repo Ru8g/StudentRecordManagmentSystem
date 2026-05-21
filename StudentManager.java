@@ -63,4 +63,38 @@ try (BufferedReader reader =new BufferedReader(new FileReader(file))){
 }
     
 }
+public ArrayList<Student> getStudents() {
+    return students;
+}
+
+public void saveToFile() {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        for (Student s : students) {
+            writer.write(s.toString());
+            writer.newLine();
+        }
+    } catch (Exception e) {
+        System.out.println("An error occurred during file writing: " + e.getMessage());
+    }
+}
+public void printAllStudentsReports() {
+    System.out.println("\n====================================== Students Report ======================================");
+    
+    if (students.isEmpty()) {
+        System.out.println(" No students found in the system.");
+    } else {
+        for (Student s : students) {
+            System.out.print("ID: " + s.getId() + " | Name: " + s.getName() + 
+                             " | Dept: " + s.getDepartment() + " | GPA: " + s.getGpa() + 
+                             " | Year: " + s.getYear());
+            
+            if (s instanceof GraduateStudent) {
+                GraduateStudent gs = (GraduateStudent) s;
+                System.out.print(" | Topic: " + gs.getResearchTopic() + " | Supervisor: " + gs.getSupervisorName());
+            }
+            System.out.println(); 
+        }
+    }
+    System.out.println("=============================================================================================\n");
+}
 }
